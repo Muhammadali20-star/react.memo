@@ -5,6 +5,13 @@ import Skeleton from "../skeleton/Skeleton";
 
 const Users = () => {
   const {data,error, loading} = useFetch("/users")
+
+  if(error) {
+    return <div className='text-center text-red-500'>
+      <p>Somthing went wrong :(</p>
+    </div>
+  }
+
   return (
     <div id="about">
     <User data={data}/>
