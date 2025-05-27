@@ -4,25 +4,23 @@ import { useNavigate } from "react-router-dom";
 const Products = ({data}) => {
    const navigate = useNavigate()
   return (
-    <div className="container mx-auto">
-      <h2 className="text-center text-4xl mb-10 mt-4">Product</h2>
-      <div className="grid grid-cols-4 gap-8 mb-10">
-      {data?.map((item) => (
-              <div key={item.id} className="w-72 bg-white shadow-md rounded-[8px] py-1 px-2 flex flex-col items-center justify-center gap-10">
-                <div className="block mx-auto">
-                <img onClick={()=> navigate(`/product/${item.id}`)} className="w-36" src={item.image} alt="" />
-                </div>
-                <div className="flex flex-col gap-2">
-                <h3 className="text-xl line-clamp-1 " title={item.title}><span className="font-bold">title:</span> {item.title}</h3>
-                <h3 className="text-xl" ><span className="font-bold">price:</span> ${item.price}</h3>
-                <h3 className="text-xl"><span className="font-bold">category:</span> {item.category}</h3>
-                <h3 className="text-xl"><span className="font-bold">rate:</span> {item.rating.rate}</h3>
-                <h3 className="text-xl"><span className="font-bold">count:</span> {item.rating.count}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
+    <div className="container mx-auto px-4">
+  <h2 className="text-center text-4xl font-semibold my-10 text-gray-800">Products</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {data?.map((item) => (
+      <div key={item.id} onClick={() => navigate(`/product/${item.id}`)} className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition-all duration-300 cursor-pointer" >
+        <img src={item.image} alt={item.title} className="w-28 h-32 object-contain mx-auto mb-4" />
+        <div className="space-y-1 text-sm text-gray-700">
+          <h3 className="font-semibold truncate" title={item.title}>{item.title}</h3>
+          <p><span className="font-medium">Price:</span> ${item.price}</p>
+          <p><span className="font-medium">Category:</span> {item.category}</p>
+          <p><span className="font-medium">Rate:</span> {item.rating.rate}</p>
+          <p><span className="font-medium">Count:</span> {item.rating.count}</p>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
   );
 };
 

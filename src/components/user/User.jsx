@@ -4,28 +4,31 @@ import { useNavigate } from 'react-router-dom'
 const User = ({data}) => {
     const navigate = useNavigate()
   return (
-    <div className='mb-20'>
-      <h2 className='text-center text-4xl mb-8'>Users</h2>
-      <div className='container mx-auto grid lg:grid-cols-4 md:grid-cols-2  gap-6'>
-        {
-          data?.map((item) => (
-            <div key={item.id} className='bg-stone-100 text-[12px] flex flex-col gap-4  rounded-[10px] pb-10 p-1' onClick={()=> navigate(`/users/${item.id}`)} style={{boxShadow: '0 4px 10px rgba(10, 1, 1, 0.5)'}}>
-              <h3><span className='font-bold'>firstname:</span> {item.name.firstname}</h3>
-              <h3><span className='font-bold'>lastname:</span> {item.name.lastname}</h3>
-              <h3><span className='font-bold'>email:</span> {item.email}</h3>
-              <h3><span className='font-bold'>username:</span> {item.username}</h3>
-              <h3><span className='font-bold'>password:</span> {item.password}</h3>
-              <h3><span className='font-bold'>phone:</span> {item.phone}</h3>
-              <h3><span className='font-bold'>city:</span> {item.address.city}</h3>
-              <h3><span className='font-bold'>street:</span> {item.address.street}</h3>
-              <h3><span className='font-bold'>number:</span> {item.address.number}</h3>
-              <h3><span className='font-bold'>zipcode:</span> {item.address.zipcode}</h3>
-              
-            </div>
-          ))
-        }
+    <div className="mb-20">
+  <h2 className="text-center text-4xl font-semibold mb-10 text-gray-800">Users</h2>
+  <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 px-4">
+    {data?.map((item) => (
+      <div
+        key={item.id}
+        onClick={() => navigate(`/users/${item.id}`)}
+        className="bg-white rounded-xl shadow-md hover:shadow-lg p-5 transition-all duration-300 cursor-pointer"
+      >
+        <div className="space-y-1 text-sm text-gray-700">
+          <p><span className="font-medium">Firstname:</span> {item.name.firstname}</p>
+          <p><span className="font-medium">Lastname:</span> {item.name.lastname}</p>
+          <p><span className="font-medium">Email:</span> {item.email}</p>
+          <p><span className="font-medium">Username:</span> {item.username}</p>
+          <p><span className="font-medium">Password:</span> {item.password}</p>
+          <p><span className="font-medium">Phone:</span> {item.phone}</p>
+          <p><span className="font-medium">City:</span> {item.address.city}</p>
+          <p><span className="font-medium">Street:</span> {item.address.street}</p>
+          <p><span className="font-medium">Number:</span> {item.address.number}</p>
+          <p><span className="font-medium">Zipcode:</span> {item.address.zipcode}</p>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
   )
 }
 
