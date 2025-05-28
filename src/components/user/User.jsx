@@ -8,11 +8,7 @@ const User = ({data}) => {
   <h2 className="text-center text-4xl font-semibold mb-10 text-gray-800">Users</h2>
   <div className="container mx-auto grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 px-4">
     {data?.map((item) => (
-      <div
-        key={item.id}
-        onClick={() => navigate(`/users/${item.id}`)}
-        className="bg-white rounded-xl shadow-md hover:shadow-lg p-5 transition-all duration-300 cursor-pointer"
-      >
+      <div key={item.id} onClick={() => navigate(`/users/${item.id}`)} className="bg-white rounded-xl shadow-md hover:shadow-lg p-5 transition-all duration-300 cursor-pointer" >
         <div className="space-y-1 text-sm text-gray-700">
           <p><span className="font-medium">Firstname:</span> {item.name.firstname}</p>
           <p><span className="font-medium">Lastname:</span> {item.name.lastname}</p>
